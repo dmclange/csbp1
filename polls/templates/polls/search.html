@@ -1,0 +1,21 @@
+<html>
+<body>
+<form method="get">
+    <label for="xss">Search: </label>
+    <input type="text" id="xss" name="xss" />
+    <input type="submit" value="Submit!" />
+</form>
+
+<span id="search-query" ></span>
+
+<!-- The results of the search query -->
+
+<script type="application/javascript">
+    var searchParams = new URLSearchParams(document.location.search);
+    if (searchParams.has("xss"))
+    {
+        document.getElementById("search-query").innerHTML = "You searched for " + searchParams.get("xss")
+    }
+</script>
+</body>
+</html>
